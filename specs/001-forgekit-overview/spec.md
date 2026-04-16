@@ -5,7 +5,6 @@
 **Status**: Approved
 **Input**: User description: "Create the initial system overview specification for a project named ForgeKit — a production-ready microservices starter kit."
 
-
 ## Project Overview
 
 ForgeKit is an opinionated, production-ready microservices starter foundation designed to eliminate the most common failures in early-stage distributed system design.
@@ -45,7 +44,7 @@ A developer discovers ForgeKit, clones the repository, and gets the entire syste
 
 **Acceptance Scenarios**:
 
-1. **Given** a fresh machine with prerequisites installed, **When** the developer clones the repository and runs the bootstrap command, **Then** all services start and respond to health checks within a defined time window.
+1. **Given** a fresh machine with prerequisites installed, **When** the developer clones the repository and runs the bootstrap command, **Then** all services start and respond to health checks in under 10 minutes.
 2. **Given** the system is running, **When** the developer inspects the project structure, **Then** the layout is intuitive, documented, and consistent across all services.
 
 ---
@@ -85,21 +84,21 @@ A platform engineering team evaluates whether ForgeKit is suitable for their org
 - What happens when a developer runs the bootstrap on an operating system or architecture not explicitly tested (e.g., ARM-based machines, Windows WSL)?
 - How does the system behave when a scaffolded service name conflicts with an existing service?
 - What happens if a required prerequisite (Docker, runtime, package manager) is missing during bootstrap?
-- How does ForgeKit handle scenarios where a team wants to customize or opt out of specific foundational patterns?
+- How does ForgeKit handle scenarios where a team wants to customize or extend foundational patterns without violating the project constitution?
 
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
 
-- **FR-001**: System MUST provide a single bootstrap command that starts all core services and verifies they are running.
-- **FR-002**: System MUST provide a service scaffolding command that generates a new microservice with all foundational patterns pre-configured.
+- **FR-001**: System MUST provide a single bootstrap command that starts all core services required for a minimal functional system (e.g., API Gateway, at least one domain service, and supporting infrastructure). The exact set of supporting infrastructure components will be defined during the planning phase.
+- **FR-002**: System MUST provide a service scaffolding command that generates a new microservice with all foundational patterns pre-configured, including testing setup with support for 80% coverage, structured logging, observability hooks such as correlation ID propagation and metrics support, a security baseline including authentication integration and input validation, CI/CD pipeline integration, and health check endpoints.
 - **FR-003**: System MUST provide clear, accessible documentation covering project structure, service creation, and deployment patterns.
 - **FR-004**: System MUST include a constitution document that defines non-negotiable engineering principles for all services.
 - **FR-005**: System MUST ensure every service exposes a health check endpoint that can be used for readiness and liveness probes.
 - **FR-006**: System MUST provide structured logging with correlation ID propagation across all services.
 - **FR-007**: System MUST include a CI/CD pipeline template that enforces test coverage (≥ 80%), linting, and security scanning.
 - **FR-008**: Each service MUST be independently buildable, testable, and deployable without requiring changes to other services.
-- **FR-009**: System MUST define and enforce inter-service communication patterns (synchronous HTTP and/or asynchronous messaging).
+- **FR-009**: System MUST define and enforce inter-service communication patterns as specified in the architecture specification.
 - **FR-010**: System MUST ensure no sensitive data (secrets, tokens, credentials) is committed to version control or exposed in logs.
 
 ### Key Entities

@@ -31,5 +31,5 @@
 
 ## Notes
 
-- All items passed on first validation — spec is ready for `/speckit.plan`
-- No [NEEDS CLARIFICATION] markers were needed; reasonable defaults applied to all ambiguous areas
+- Specification was refined after its initial validation to clarify bootstrap timing, foundational scaffolding patterns, and planning-phase ownership of supporting infrastructure details
+- The current version is ready for `/speckit.plan`
